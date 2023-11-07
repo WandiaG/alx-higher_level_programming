@@ -1,14 +1,6 @@
 #!/usr/bin/python3
+"""returns the dictionary description with simple data structure"""
 
 def class_to_json(obj):
-    """Returns the dictionary description with simple data structure,
-    of an object.
-
-    Args:
-        obj (MyClass): object.
-
-    Returns:
-        dict: dictionary.
-    """
-    # print("type of obj --> {}".format(type(obj)))
+    """returns the dictionary description with simple data structure"""
     return obj.__dict__

@@ -1,39 +1,17 @@
 #!/usr/bin/python3
+""" creating student class """
 
 class Student:
-    """
-    Class that defines properties of student.
-
-    Attributes:
-        first_name (str): first name of student.
-        last_name (int): last name of student.
-        age (int): age of student.
-    """
+    """ Defining a class"""
     def __init__(self, first_name, last_name, age):
-        """Creates new instances of Student.
-
-        Args:
-            first_name (str): first name of student.
-            last_name (int): last name of student.
-            age (int): age of student.
-        """
+        """ Initializing a class"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """Retrieves a dictionary representation of a Student instance.
-
-        Returns:
-            dict: dictionary representation.
-        """
-        if attrs is None:
+        """ retrieves a dictionary representation """
+        if (type(attrs)) == list and all(type(i) == str for i in attrs):
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
+        else:
             return self.__dict__
-
-        new_dict = {}
-        for item in attrs:
-            try:
-                new_dict[item] = self.__dict__[item]
-            except Exception:
-                pass
-        return new_dict
